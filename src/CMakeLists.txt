@@ -8,7 +8,7 @@ target_include_directories(hello
 )
 target_compile_features(hello PRIVATE cxx_std_17)
 set_target_properties(hello PROPERTIES CXX_EXTENSIONS OFF)
-set_target_properties(hello PROPERTIES PUBLIC_HEADER "hello.h")
+set_target_properties(hello PROPERTIES PUBLIC_HEADER "${PROJECT_SOURCE_DIR}/include/hello.h")
 
 install(TARGETS hello
     EXPORT helloTargets
