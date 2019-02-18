@@ -25,7 +25,7 @@ class HelloConan(ConanFile):
         cmake.build()
 
     def package(self):
-        self.copy("*.h", dst="include", src="hello")
+        self.copy("*.h", dst="include", src="hello/include")
         self.copy("*hello.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)

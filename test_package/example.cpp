@@ -1,6 +1,6 @@
-#include <iostream>
 #include "hello.h"
 
-int main() {
+int main()
+{
     hello();
 }
