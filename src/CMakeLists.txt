@@ -1,4 +1,4 @@
-add_library(hello STATIC hello.cpp)
+add_library(hello hello.cpp)
 add_library(say::hello ALIAS hello)
 
 target_include_directories(hello
