@@ -15,25 +15,14 @@ class HelloConan(ConanFile):
     generators = "cmake"
 
     def source(self):
-        self.run("git clone https://github.com/memsharded/hello.git")
-        self.run("cd hello && git checkout static_shared")
-        # This small hack might be useful to guarantee proper /MT /MD linkage
-        # in MSVC if the packaged project doesn't have variables to set it
-        # properly
-        tools.replace_in_file("hello/CMakeLists.txt", "PROJECT(MyHello)",
-                              '''PROJECT(MyHello)
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()''')
+        self.run("git clone https://github.com/Hopobcn/hello.git -b master")
+        self.run("cd hello")
+
 
     def build(self):
         cmake = CMake(self)
         cmake.configure(source_folder="hello")
         cmake.build()
-
-        # Explicit way:
-        # self.run('cmake %s/hello %s'
-        #          % (self.source_folder, cmake.command_line))
-        # self.run("cmake --build . %s" % cmake.build_config)
 
     def package(self):
         self.copy("*.h", dst="include", src="hello")
