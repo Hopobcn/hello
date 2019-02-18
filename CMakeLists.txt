@@ -8,7 +8,7 @@ else ()
 endif ()
 # CMake versions info https://cliutils.gitlab.io/modern-cmake/chapters/intro/newcmake.html
 
-project(MyHello VERSION 1.0.0
+project(MyHello VERSION 0.1.0
                 DESCRIPTION "Library hello (conan example)"
                 LANGUAGES CXX)
 
